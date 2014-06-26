@@ -56,8 +56,7 @@ public class BlogAdatper extends ArrayAdapter<Blog> {
         descTextView.setText(blog.getInfo());
 
         TextView dateITextView = (TextView) blogListView.findViewById(R.id.blog_date);
-        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-        dateITextView.setText(formatter.format(blog.getPubDate()));
+        dateITextView.setText(Formatter.formatter.format(blog.getPubDate()));
 
 //        final ImageView figureImageView = (ImageView)blogListView.findViewById(R.id.blog_figure);
 //        if (blog.getFigure() == null || blog.getFigure().equals("")) {
