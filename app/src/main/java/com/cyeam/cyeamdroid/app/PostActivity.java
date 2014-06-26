@@ -42,6 +42,9 @@ public class PostActivity extends Activity {
         setContentView(R.layout.activity_post);
         Blog blog = (Blog) getIntent().getSerializableExtra(Blog.BLOG_SER);
         this.blog = blog;
+
+        getActionBar().setTitle(blog.getTitle());
+
         title = (TextView) findViewById(R.id.post_title);
         date = (TextView) findViewById(R.id.post_date);
         figure = (ImageView) findViewById(R.id.post_figure);

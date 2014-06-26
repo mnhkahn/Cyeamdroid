@@ -20,6 +20,8 @@ import com.baidu.android.pushservice.PushManager;
 import com.cyeam.cyeamdroid.doodle.Doodle;
 import com.cyeam.cyeamdroid.push.Utils;
 import com.cyeam.cyeamdroid.wallpaper.Bing;
+import com.wandoujia.ads.sdk.Ads;
+import com.wandoujia.ads.sdk.loader.Fetcher;
 
 import java.util.Locale;
 
@@ -27,6 +29,8 @@ import java.util.Locale;
 public class MainActivity extends FragmentActivity {
 
     FragmentPagerAdapter mSectionsPagerAdapter;
+
+    private static final String TAG_LIST = "bd503c8e3a05fb858dd604d77104c249";
 
     ViewPager mViewPager;
 
@@ -54,6 +58,14 @@ public class MainActivity extends FragmentActivity {
         cBuilder.setStatusbarIcon(R.drawable.ic_launcher);
         cBuilder.setLayoutDrawable(R.drawable.ic_launcher);
         PushManager.setNotificationBuilder(this, 1, cBuilder);
+
+        // Init AdsSdk.
+        try {
+            Ads.init(this, "100008405", "3cf6a27c97fe3b523f7b8344ef0ffdbe");
+            Ads.preLoad(this, Fetcher.AdFormat.appwall, TAG_LIST);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
