@@ -1,8 +1,8 @@
 package com.cyeam.cyeamdroid.app;
 
-import android.app.Application;
+import com.baidu.frontia.FrontiaApplication;
 
-public class CyeamApplication extends Application/*FrontiaApplication */ {
+public class CyeamApplication extends FrontiaApplication {
     private static CyeamApplication instance;
 
     public static CyeamApplication getInstance() {

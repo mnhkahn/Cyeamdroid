@@ -1,5 +1,6 @@
 package com.cyeam.cyeamdroid.app;
 
+import android.app.Notification;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -13,7 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.baidu.android.pushservice.CustomPushNotificationBuilder;
+import com.baidu.android.pushservice.PushConstants;
+import com.baidu.android.pushservice.PushManager;
 import com.cyeam.cyeamdroid.doodle.Doodle;
+import com.cyeam.cyeamdroid.push.Utils;
 import com.cyeam.cyeamdroid.wallpaper.Bing;
 
 import java.util.Locale;
@@ -36,6 +41,19 @@ public class MainActivity extends FragmentActivity {
         // Set up the ViewPager with the sections adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mSectionsPagerAdapter);
+
+        PushManager.startWork(getApplicationContext(),
+                PushConstants.LOGIN_TYPE_API_KEY,
+                Utils.getMetaValue(MainActivity.this, "api_key"));
+        CustomPushNotificationBuilder cBuilder = new CustomPushNotificationBuilder(
+                this, R.layout.notification_custom_builder, R.id.notification_icon,
+                R.id.notification_title, R.id.notification_text);
+        cBuilder.setNotificationFlags(Notification.DEFAULT_ALL);
+//		cBuilder.setNotificationDefaults(Notification.DEFAULT_SOUND
+//				| Notification.DEFAULT_VIBRATE);
+        cBuilder.setStatusbarIcon(R.drawable.ic_launcher);
+        cBuilder.setLayoutDrawable(R.drawable.ic_launcher);
+        PushManager.setNotificationBuilder(this, 1, cBuilder);
     }
 
 
