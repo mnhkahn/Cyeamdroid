@@ -1,23 +1,15 @@
 package com.cyeam.cyeamdroid.app;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.cyeam.cyeamdroid.http.CyeamHttp;
 import com.cyeam.cyeamdroid.model.Blog;
-import com.loopj.android.http.TextHttpResponseHandler;
 
-import org.apache.http.Header;
-
-import java.text.SimpleDateFormat;
 import java.util.List;
 
 /**

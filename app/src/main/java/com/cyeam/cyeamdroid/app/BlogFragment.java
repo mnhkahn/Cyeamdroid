@@ -2,7 +2,6 @@ package com.cyeam.cyeamdroid.app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.sax.ElementListener;
 import android.support.v4.app.ListFragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +25,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.xml.parsers.DocumentBuilder;

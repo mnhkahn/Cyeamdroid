@@ -1,12 +1,9 @@
 package com.cyeam.cyeamdroid.sqlite;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
-import android.widget.TableLayout;
 
 public class DbHelper extends SQLiteOpenHelper {
 	public static final String DB_NAME = "cyeam.db";

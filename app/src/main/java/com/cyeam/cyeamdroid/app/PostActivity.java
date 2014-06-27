@@ -1,11 +1,7 @@
 package com.cyeam.cyeamdroid.app;
 
 import android.app.Activity;
-import android.content.ComponentName;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.Menu;
@@ -20,8 +16,6 @@ import com.cyeam.cyeamdroid.model.Blog;
 import com.loopj.android.http.TextHttpResponseHandler;
 
 import org.apache.http.Header;
-
-import java.util.List;
 
 /**
  * Created by bryce on 14-6-25.

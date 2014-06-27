@@ -4,9 +4,9 @@ import android.app.WallpaperManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.cyeam.cyeamdroid.app.CyeamApplication;
 import com.cyeam.cyeamdroid.app.R;
 import com.cyeam.cyeamdroid.app.Receiver;
-import com.cyeam.cyeamdroid.app.CyeamApplication;
 import com.cyeam.cyeamdroid.http.CyeamHttp;
 import com.loopj.android.http.TextHttpResponseHandler;
 
