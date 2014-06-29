@@ -68,12 +68,12 @@ public class MainActivity extends FragmentActivity implements BaseSliderView.OnS
         PushManager.setNotificationBuilder(this, 1, cBuilder);
 
         // Init AdsSdk.
-        try {
-            Ads.init(this, "100008405", "3cf6a27c97fe3b523f7b8344ef0ffdbe");
-            Ads.preLoad(this, Fetcher.AdFormat.appwall, TAG_LIST);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+//        try {
+//            Ads.init(this, "100008405", "3cf6a27c97fe3b523f7b8344ef0ffdbe");
+//            Ads.preLoad(this, Fetcher.AdFormat.appwall, TAG_LIST);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
         mDemoSlider = (SliderLayout)findViewById(R.id.slider);
 
@@ -110,6 +110,8 @@ public class MainActivity extends FragmentActivity implements BaseSliderView.OnS
         mDemoSlider.setDuration(4000);
 //        ListView l = (ListView)findViewById(R.id.transformers);
 //        l.setAdapter(new TransformerAdapter(this));
+
+
     }
 
 

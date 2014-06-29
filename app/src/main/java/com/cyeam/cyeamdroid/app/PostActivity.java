@@ -2,8 +2,11 @@ package com.cyeam.cyeamdroid.app;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
@@ -26,6 +29,14 @@ public class PostActivity extends Activity {
     private TextView date;
     private ImageView figure;
     private WebView webView;
+
+    private Handler handler = new Handler() {
+        @Override
+        public void handleMessage(Message msg) {
+            Bitmap bitmap = (Bitmap) msg.obj;
+            figure.setImageBitmap(bitmap);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +67,22 @@ public class PostActivity extends Activity {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     super.onSuccess(statusCode, headers, responseBody);
-                    figure.setImageBitmap(BitmapFactory.decodeByteArray(responseBody, 0, responseBody.length));
+                    Message message = Message.obtain();
+                    message.obj = BitmapFactory.decodeByteArray(responseBody, 0, responseBody.length);
+                    handler.sendMessage(message);
+                    System.out.println("********************");
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String responseBody, Throwable error) {
+                    super.onFailure(statusCode, headers, responseBody, error);
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!!!" + statusCode);
                 }
 
                 @Override
                 public void onFailure(String responseBody, Throwable error) {
                     super.onFailure(responseBody, error);
+                    System.out.println("!!!!!!!!!!!!!!!!!!!!!");
                 }
             });
         }

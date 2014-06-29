@@ -1,8 +1,10 @@
 package com.cyeam.cyeamdroid.app;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -51,6 +53,7 @@ public class BlogFragment extends ListFragment {
 
     public void setAdapter(BlogAdatper adapter) {
         this.setListAdapter(adapter);
+
     }
 
     private void getData() {
@@ -131,6 +134,7 @@ public class BlogFragment extends ListFragment {
                     e.printStackTrace();
                 }
                 adapter = new BlogAdatper(getActivity(), R.layout.blog, blogs);
+
                 setAdapter(adapter);
             }
 
@@ -138,6 +142,36 @@ public class BlogFragment extends ListFragment {
             public void onFailure(int statusCode, Header[] headers, String responseBody, Throwable error) {
                 super.onFailure(statusCode, headers, responseBody, error);
                 System.out.println(statusCode);
+            }
+
+            @Override
+            public void onFailure(String responseBody, Throwable error) {
+                super.onFailure(responseBody, error);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+                super.onFailure(statusCode, headers, responseBody, error);
+            }
+
+            @Override
+            public void onFailure(Throwable error) {
+                super.onFailure(error);
+            }
+
+            @Override
+            public void onFailure(Throwable error, String content) {
+                super.onFailure(error, content);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Throwable error, String content) {
+                super.onFailure(statusCode, error, content);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable error, String content) {
+                super.onFailure(statusCode, headers, error, content);
             }
         });
     }
