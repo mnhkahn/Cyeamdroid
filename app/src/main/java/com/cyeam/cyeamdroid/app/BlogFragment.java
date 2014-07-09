@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,9 +62,27 @@ public class BlogFragment extends ListFragment {
 
         CyeamHttp.get("http://blog.cyeam.com/rss.xml", null, new TextHttpResponseHandler() {
             @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+            public void onSuccess(int statusCode, Header[] headers, String responseBody) {
                 super.onSuccess(statusCode, headers, responseBody);
-//                System.out.println(responseBody);
+                Log.e("******************", "s" + statusCode);
+            }
+
+            @Override
+            public void onSuccess(String content) {
+                super.onSuccess(content);
+                Log.e("******************", "s" + 1);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, String content) {
+                super.onSuccess(statusCode, content);
+                Log.e("******************", "s" + statusCode);
+            }
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+//                super.onSuccess(statusCode, headers, responseBody);
+//                System.out.println(responseBody); 
                 DocumentBuilderFactory factory = null;
                 DocumentBuilder builder = null;
                 Document document = null;
@@ -78,6 +97,7 @@ public class BlogFragment extends ListFragment {
                     NodeList nodes = root
                             .getElementsByTagName(Blog.Item);
 
+                    Log.e("******************", "" + nodes.getLength());
                     for (int i = 0; i < nodes.getLength(); i++){
                         Blog blog = new Blog();
                         Element ele = (Element) (nodes.item(i));
@@ -141,37 +161,43 @@ public class BlogFragment extends ListFragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseBody, Throwable error) {
                 super.onFailure(statusCode, headers, responseBody, error);
-                System.out.println(statusCode);
+                Log.e("******************", "" + statusCode);
             }
 
             @Override
             public void onFailure(String responseBody, Throwable error) {
                 super.onFailure(responseBody, error);
+                Log.e("******************", "" + 1);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
                 super.onFailure(statusCode, headers, responseBody, error);
+                Log.e("******************", "" + statusCode);
             }
 
             @Override
             public void onFailure(Throwable error) {
                 super.onFailure(error);
+                Log.e("******************", "" + 2);
             }
 
             @Override
             public void onFailure(Throwable error, String content) {
                 super.onFailure(error, content);
+                Log.e("******************", "" + 3);
             }
 
             @Override
             public void onFailure(int statusCode, Throwable error, String content) {
                 super.onFailure(statusCode, error, content);
+                Log.e("******************", "" + statusCode);
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable error, String content) {
                 super.onFailure(statusCode, headers, error, content);
+                Log.e("******************", "" + statusCode);
             }
         });
     }
