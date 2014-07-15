@@ -82,7 +82,7 @@ public class BlogFragment extends ListFragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
 //                super.onSuccess(statusCode, headers, responseBody);
-//                System.out.println(responseBody); 
+//                System.out.println(responseBody);
                 DocumentBuilderFactory factory = null;
                 DocumentBuilder builder = null;
                 Document document = null;

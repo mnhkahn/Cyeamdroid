@@ -66,10 +66,10 @@ public class BlogAdatper extends ArrayAdapter<Blog> {
         TextView dateITextView = (TextView) blogListView.findViewById(R.id.blog_date);
         dateITextView.setText(Formatter.formatter.format(blog.getPubDate()));
 
-        ImageView figureImageView = (ImageView)blogListView.findViewById(R.id.blog_figure);
-        if (blog.getFigure() != null && !blog.getFigure().equals("")) {
-            loadBitmap(blog.getFigure(), figureImageView);
-        }
+//        ImageView figureImageView = (ImageView)blogListView.findViewById(R.id.blog_figure);
+//        if (blog.getFigure() != null && !blog.getFigure().equals("")) {
+//            loadBitmap(blog.getFigure(), figureImageView);
+//        }
 
         return blogListView;
     }
